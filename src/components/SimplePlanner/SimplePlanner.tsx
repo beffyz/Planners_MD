@@ -1,27 +1,15 @@
 import React, { useState } from 'react';
 import './simplePlanner.scss';
 
+const taskArray = [
+  {
+    title: 'Watch a movie',
+  },
+];
+
 const SimplePlanner = () => {
-  const [todos, setTodos] = useState([]);
+  const [tasks, setTasks] = useState(taskArray);
   const [inputValue, setInputValue] = useState('');
-
-  const addTodoHandler = () => {
-    const oldTodos = [...todos];
-    if (inputValue === '') {
-      return;
-    }
-    const newTodo = {
-      id: Math.floor(Math.random() * 1000),
-      text: inputValue,
-    };
-
-    // @ts-ignore
-    const newTodos = oldTodos.concat(newTodo);
-
-    setTodos(newTodos);
-
-    setInputValue('');
-  };
 
   return (
     <div className="simple-planner simple-planner__styling">
@@ -33,14 +21,23 @@ const SimplePlanner = () => {
           className="simple-planner__input"
           type="text"
         />
-        <button type="button" onClick={addTodoHandler} className="simple-planner__btn">ADD</button>
+        <button
+          type="button"
+          className="simple-planner__btn"
+          onClick={() => {
+            setTasks([...tasks, { title: inputValue }]);
+            setInputValue('');
+          }}
+        >
+          ADD
+        </button>
+
       </div>
       <div className="simple-planner__list">
-        <li>Watch a movie</li>
-        {todos.map(({ id, text }, index) => (
-          <div key={id}>
+        {tasks.map((item, index) => (
+          <div key={Math.random()}>
             <li>
-              {text}
+              {item.title}
             </li>
           </div>
         ))}

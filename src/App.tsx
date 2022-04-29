@@ -4,6 +4,8 @@ import './assets/normalize.css';
 import './assets/flexboxgrid.css';
 import ReactSwitch from 'react-switch';
 import SimplePlanner from './components/SimplePlanner/SimplePlanner';
+import SecondPlanner from './components/SecondPlanner/SecondPlanner';
+import ThirdPlanner from './components/ThirdPlanner/ThirdPlanner';
 
 export const ThemeContext = createContext(null);
 
@@ -16,7 +18,7 @@ function App() {
   return (
     <section>
       <ThemeContext.Provider value={null}>
-        <ReactSwitch className="switch" checked={theme === 'light'} onChange={toggleTheme} />
+        <ReactSwitch className="switch" checked={theme === 'dark'} onChange={toggleTheme} />
         <div id={theme}>
           <div className="container">
             <div className="row">
@@ -25,6 +27,14 @@ function App() {
                   <SimplePlanner />
                 </div>
               </div>
+            </div>
+            <div className="row">
+              <div className="col-md-12">
+                <SecondPlanner />
+              </div>
+            </div>
+            <div className="row">
+              <ThirdPlanner />
             </div>
           </div>
         </div>
