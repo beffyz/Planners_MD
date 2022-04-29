@@ -1,0 +1,29 @@
+.simple-planner {
+  max-width: 300px;
+  width: 100%;
+  margin-top: 20px;
+  border: 1px solid black;
+}
+
+.simple-planner__box {
+  margin-top: 20px;
+  margin-left: 30px;
+}
+
+.simple-planner__list {
+  margin-top: 10px;
+  margin-left: 30px;
+}
+
+.simple-planner__list {
+  margin-bottom: 20px;
+}
+
+#dark .simple-planner__styling {
+  background-color: darkgrey;
+  color: white;
+}
+
+#light .simple-planner__styling {
+  background-color: white;
+}
