@@ -53,7 +53,7 @@ const FifthPlanner = () => {
         </div>
         <div className="fifth-planner__tasks">
           {tasks.map((item) => (
-            <div className="fifth-planner__tasks-item">
+            <div key={Math.random()} className="fifth-planner__tasks-item">
               <div>
                 <span className="fifth-planner__tasks-item--priority">{item.priority.priorityTitle}</span>
               </div>
