@@ -6,6 +6,8 @@ import ReactSwitch from 'react-switch';
 import SimplePlanner from './components/SimplePlanner/SimplePlanner';
 import SecondPlanner from './components/SecondPlanner/SecondPlanner';
 import ThirdPlanner from './components/ThirdPlanner/ThirdPlanner';
+import FourthPlanner from './components/FourthPlanner/FourthPlanner';
+import FifthPlanner from './components/FifthPlanner/FifthPlanner';
 
 export const ThemeContext = createContext(null);
 
@@ -20,7 +22,7 @@ function App() {
       <ThemeContext.Provider value={null}>
         <ReactSwitch className="switch" checked={theme === 'dark'} onChange={toggleTheme} />
         <div id={theme}>
-          <div className="container">
+          <div className="container body-color">
             <div className="row">
               <div className="col-md-12">
                 <div>
@@ -34,7 +36,19 @@ function App() {
               </div>
             </div>
             <div className="row">
-              <ThirdPlanner />
+              <div className="col-md-12">
+                <ThirdPlanner />
+              </div>
+            </div>
+            <div className="row">
+              <div className="col-md-12">
+                <FourthPlanner />
+              </div>
+            </div>
+            <div className="row">
+              <div className="col-md-12">
+                <FifthPlanner />
+              </div>
             </div>
           </div>
         </div>

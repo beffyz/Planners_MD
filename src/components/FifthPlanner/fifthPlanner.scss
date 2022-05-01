@@ -1,0 +1,34 @@
+.fifth-planner__box {
+  margin-top: 20px;
+  border: 1px solid black;
+  max-width: 350px;
+  width: 100%;
+}
+
+.fifth-planner__box-nav {
+  margin-top: 20px;
+  margin-left: 15px;
+  display: inline-flex;
+}
+
+.fifth-planner__priority-box {
+  display: flex;
+  flex-direction: column;
+}
+
+.fifth-planner__tasks {
+  margin-top: 20px;
+  margin-left: 15px;
+  margin-bottom: 20px;
+}
+
+.fifth-planner__tasks-item {
+  border: 1px solid black;
+  margin-top: 10px;
+  max-width: 320px;
+  width: 100%;
+}
+
+.fifth-planner__tasks-item--priority {
+  border: 1px solid black;
+}

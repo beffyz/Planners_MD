@@ -1,0 +1,61 @@
+.third-planner {
+  max-width: 300px;
+  width: 100%;
+  margin-top: 20px;
+  border: 1px solid black;
+}
+
+.third-planner__box {
+  margin-bottom: 20px;
+}
+
+.third-planner__input {
+  margin-top: 20px;
+  margin-left: 30px;
+}
+
+.third-planner__todo-box {
+  display: flex;
+  justify-content: space-between;
+  max-width: 238px;
+  width: 100%;
+  border: 1px solid black;
+  margin-top: 10px;
+  margin-left: 30px;
+}
+
+.third-planner__progress-bar {
+  border: 1px solid black;
+  margin-top: 10px;
+  max-width: 238px;
+  width: 100%;
+  height: 10px;
+  margin-left: 30px;
+}
+
+.third-planner__progress-bar--line {
+  height: 100%;
+  background-color: lightgreen;
+  width: 100%;
+}
+
+.third-planner__close-btn {
+  color: red;
+  background: transparent;
+  border: none;
+  font-weight: 900;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.fourth-planner__span {
+  margin-left: 5px;
+}
+
+#dark .third-planner__styling {
+  background-color: darkgrey;
+  color: white;
+}
+

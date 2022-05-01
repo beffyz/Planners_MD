@@ -1,6 +1,18 @@
 import React, { useState } from 'react';
 import './secondPlanner.scss';
 
+const percentCalculator = (mainLength: number, length: number) => ((100 / mainLength) * length).toFixed(2);
+
+// @ts-ignore
+// document.getElementById('progress').style.width = `${percentCalculator(tasks.length, tasks.filter((i) => (
+//     i.done)).length)}%`;
+
+const all = 1;
+const inProgress = 2;
+const completed = 3;
+
+let filterOptions = all;
+
 const taskArray = [
   {
     title: 'Watch a movie',
@@ -11,15 +23,15 @@ const taskArray = [
 const buttonArray = [
   {
     title: 'All',
-    done: false,
+    filter: all,
   },
   {
     title: 'In progress',
-    done: false,
+    filter: inProgress,
   },
   {
     title: 'Completed',
-    done: false,
+    filter: completed,
   },
 ];
 
@@ -35,7 +47,13 @@ const SecondPlanner = () => {
   };
 
   return (
-    <div className="todo">
+    <div
+      onClick={() => { // @ts-ignore
+        document.getElementById('progress').style.width = `${percentCalculator(tasks.length, tasks.filter((i) => (
+          i.done)).length)}%`;
+      }}
+      className="todo second-planner__styling"
+    >
       <input
         type="text"
         className="todo__input"
@@ -55,7 +73,18 @@ const SecondPlanner = () => {
 
       <div className="todo__list">
         <div className="todo__box">
-          {tasks.map((item, index) => (
+          <div className="todo__progress-bar">
+            <div id="progress" className="todo__progress-bar--line" />
+          </div>
+          {tasks.filter((item) => {
+            if (filterOptions === 1) {
+              return item;
+            }
+            if (filterOptions === 2) {
+              return !item.done;
+            }
+            return item.done;
+          }).map((item, index) => (
             <div key={Math.random()}>
               <div
                 className="todo__task"
@@ -73,9 +102,14 @@ const SecondPlanner = () => {
             </div>
           ))}
           <div className="todo-progress__btn">
-            {isDone.map((item) => (
+            {isDone.map((item, index) => (
               <div key={Math.random()}>
-                <button style={{ backgroundColor: item.done ? 'lightgreen' : 'none' }}>{item.title}</button>
+                <button onClick={() => {
+                  filterOptions = item.filter; setTasks([...tasks]);
+                }}
+                >
+                  {item.title}
+                </button>
               </div>
             ))}
           </div>
